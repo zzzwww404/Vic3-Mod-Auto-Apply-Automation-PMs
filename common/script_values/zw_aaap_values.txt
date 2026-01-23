@@ -1,0 +1,5 @@
+﻿zw_value_aaap_pricier_1 = 0
+zw_value_aaap_pricier_2 = 0.10
+zw_value_aaap_pricier_3 = 0.20 # current
+zw_value_aaap_pricier_4 = 0.30
+zw_value_aaap_pricier_5 = 0.40

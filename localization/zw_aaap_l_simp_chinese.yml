@@ -1,0 +1,66 @@
+﻿#l_braz_por:
+#l_english:
+#l_french:
+#l_german:
+#l_japanese:
+#l_korean:
+#l_polish:
+#l_russian:
+l_simp_chinese:
+#l_spanish:
+#l_turkish:
+# decisions
+
+	zw_auto_pm_automation_add_je: "$je_zw_auto_pm_automation$"
+	zw_auto_pm_automation_add_je_desc: "添加$je_zw_auto_pm_automation$至日志"
+
+# journal entries
+
+	je_zw_auto_pm_automation: "生产自动化管理"
+	je_zw_auto_pm_automation_reason: "普及自动化生产方式。"
+
+# scripted buttons
+
+	# Basic Automation
+
+	zw_auto_pm_automation_basic_button: "@green_checkmark!基础自动化"
+	zw_auto_pm_automation_basic_button_effect: "[ROOT.GetCountry.GetNameNoFlag]将在符合条件的地区#white #b 逐渐#!#!普及#white #b 基础#!#!自动化生产方式。"
+	zw_auto_pm_automation_basic_button_desc: ""
+
+	zw_auto_pm_automation_basic_undo_button: "@red_cross!基础自动化"
+	zw_auto_pm_automation_basic_undo_button_effect: "停止普及基础自动化。"
+	zw_auto_pm_automation_basic_undo_button_desc: ""
+
+	# Electrical Automation
+
+	zw_auto_pm_automation_electric_button: "@green_checkmark!电气自动化"
+	zw_auto_pm_automation_electric_button_effect: "[ROOT.GetCountry.GetNameNoFlag]将在符合条件的地区#white #b 逐渐#!#!普及#white #b 电气#!#!自动化生产方式。"
+	zw_auto_pm_automation_electric_button_desc: ""
+
+	zw_auto_pm_automation_electric_undo_button: "@red_cross!电气自动化"
+	zw_auto_pm_automation_electric_undo_button_effect: "停止普及电气自动化。"
+	zw_auto_pm_automation_electric_undo_button_desc: ""
+
+	# Oil Automation
+
+	zw_auto_pm_automation_oil_button: "@green_checkmark!石油自动化"
+	zw_auto_pm_automation_oil_button_effect: "[ROOT.GetCountry.GetNameNoFlag]将在符合条件的地区#white #b 逐渐#!#!普及#white #b 石油#!#!自动化生产方式。"
+	zw_auto_pm_automation_oil_button_desc: ""
+
+	zw_auto_pm_automation_oil_undo_button: "@red_cross!石油自动化"
+	zw_auto_pm_automation_oil_undo_button_effect: "停止普及石油自动化。"
+	zw_auto_pm_automation_oil_undo_button_desc: ""
+
+	# Rail Transportation
+
+	zw_auto_pm_transportation_button: "@green_checkmark!轨道运输"
+	zw_auto_pm_transportation_button_effect: "[ROOT.GetCountry.GetNameNoFlag]将在符合条件的地区#white #b 逐渐#!#!普及#white #b 轨道运输#!#!。"
+	zw_auto_pm_transportation_button_desc: ""
+
+	zw_auto_pm_transportation_undo_button: "@red_cross!轨道运输"
+	zw_auto_pm_transportation_undo_button_effect: "停止普及轨道运输。。"
+	zw_auto_pm_transportation_undo_button_desc: ""
+
+# custom tooltips
+
+ 	zw_require_basic_automation_tt: "已在普及基础自动化"

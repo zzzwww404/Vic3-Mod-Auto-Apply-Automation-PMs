@@ -1,0 +1,86 @@
+﻿je_zw_auto_pm_automation = {
+
+	icon = "gfx/interface/icons/invention_icons/rotary_valve_engine.dds"
+	
+	group = je_group_historical_content
+
+	# automation
+
+	scripted_button = zw_auto_pm_automation_basic_button
+	scripted_button = zw_auto_pm_automation_basic_undo_button
+
+	scripted_button = zw_auto_pm_automation_electric_button
+	scripted_button = zw_auto_pm_automation_electric_undo_button	
+
+	scripted_button = zw_auto_pm_automation_oil_button
+	scripted_button = zw_auto_pm_automation_oil_undo_button
+
+	# train transportation
+
+	scripted_button = zw_auto_pm_transportation_button
+	scripted_button = zw_auto_pm_transportation_undo_button
+
+	# on actions
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = { has_variable = zw_var_auto_pm_transportation }
+				# case.1: transportation + automation
+				if = {
+					limit = { has_variable = zw_var_auto_pm_automation_basic }
+					every_scope_state = {
+						if = {
+							limit = { zw_trigger_aaap_state_workforce_low = yes }
+							if = {
+								limit = {
+									has_building = building_railway
+									sg:transportation = { state_goods_pricier <= 0.20 }
+								}
+								zw_effect_change_state_pm_transportation = yes
+							}
+							zw_effect_change_state_pm_automation = yes
+						}
+						else_if = {
+							limit = {
+								has_building = building_railway
+								sg:transportation = { state_goods_cheaper >= 0 }
+							}
+							zw_effect_change_state_pm_transportation = yes
+						}
+					}
+				}
+				# case.2: transportation only
+				else = {
+					every_scope_state = {
+						limit = {
+							has_building = building_railway
+							OR = {
+								sg:transportation = { state_goods_cheaper >= 0 }
+								AND = {
+									sg:transportation = { state_goods_pricier <= 0.20 }
+									zw_trigger_aaap_state_workforce_low = yes
+								}
+							}
+						}
+						zw_effect_change_state_pm_transportation = yes
+					}
+				}
+			}
+			# case.3: automation only
+			else_if = {
+				limit = { has_variable = zw_var_auto_pm_automation_basic }
+				every_scope_state = {
+					limit = {
+						zw_trigger_aaap_state_workforce_low = yes
+					}
+					zw_effect_change_state_pm_automation = yes
+				}
+			}
+		}
+	}
+
+	weight = 99999
+
+	should_be_pinned_by_default = yes
+}

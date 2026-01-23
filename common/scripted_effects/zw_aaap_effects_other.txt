@@ -1,0 +1,33 @@
+﻿zw_effect_change_state_pm_automation = {
+	ordered_scope_building = {
+		limit = {
+			level >= 1
+			zw_trigger_auto_pm_automation = yes
+		}
+		order_by = {
+			subtract = level
+		}
+		min = 0
+		max = 1
+		check_range_bounds = no
+		zw_effect_auto_pm_automation = yes
+	}
+}
+
+zw_effect_change_state_pm_transportation = {
+	ordered_scope_building = {
+		limit = {
+			level >= 1
+			zw_trigger_auto_pm_transportation = yes
+		}
+		order_by = {
+			subtract = level
+		}
+		min = 0
+		max = 1
+		check_range_bounds = no
+		zw_effect_auto_pm_transportation = yes
+	}
+}
+
+

@@ -1,0 +1,67 @@
+﻿#l_braz_por:
+l_english:
+#l_french:
+#l_german:
+#l_japanese:
+#l_korean:
+#l_polish:
+#l_russian:
+#l_simp_chinese:
+#l_spanish:
+#l_turkish:
+
+# decisions
+
+	zw_auto_pm_automation_add_je: "$je_zw_auto_pm_automation$"
+	zw_auto_pm_automation_add_je_desc: "Adds "$je_zw_auto_pm_automation$" to journal"
+
+# journal entries
+
+	je_zw_auto_pm_automation: "Production Automation Management"
+	je_zw_auto_pm_automation_reason: "Automate our production process."
+
+# scripted buttons
+
+	# Basic Automation
+
+	zw_auto_pm_automation_basic_button: "@green_checkmark! Basic Automation"
+	zw_auto_pm_automation_basic_button_effect: "[ROOT.GetCountry.GetNameNoFlag] will #white #b gradually#!#! implement #white #b basic#!#! automated production methods in eligible states."
+	zw_auto_pm_automation_basic_button_desc: ""
+
+	zw_auto_pm_automation_basic_undo_button: "@red_cross! Basic Automation"
+	zw_auto_pm_automation_basic_undo_button_effect: "Stop implementing more basic automated methods."
+	zw_auto_pm_automation_basic_undo_button_desc: ""
+
+	# Electrical Automation
+
+	zw_auto_pm_automation_electric_button: "@green_checkmark! Electrical Automation"
+	zw_auto_pm_automation_electric_button_effect: "[ROOT.GetCountry.GetNameNoFlag] will #white #b gradually#!#! implement #white #b electrical#!#! automated production methods in eligible states."
+	zw_auto_pm_automation_electric_button_desc: ""
+
+	zw_auto_pm_automation_electric_undo_button: "@red_cross! Electrical Automation"
+	zw_auto_pm_automation_electric_undo_button_effect: "Stop implementing more electrical automated methods."
+	zw_auto_pm_automation_electric_undo_button_desc: ""
+
+	# Oil Automation
+
+	zw_auto_pm_automation_oil_button: "@green_checkmark! Oil Automation"
+	zw_auto_pm_automation_oil_button_effect: "[ROOT.GetCountry.GetNameNoFlag] will #white #b gradually#!#! implement #white #b oil#!#! automated production methods in eligible states."
+	zw_auto_pm_automation_oil_button_desc: ""
+
+	zw_auto_pm_automation_oil_undo_button: "@red_cross! Oil Automation"
+	zw_auto_pm_automation_oil_undo_button_effect: "Stop implementing more automated methods that needs oil."
+	zw_auto_pm_automation_oil_undo_button_desc: ""
+
+	# Rail Transportation
+
+	zw_auto_pm_transportation_button: "@green_checkmark! Rail Transportation"
+	zw_auto_pm_transportation_button_effect: "[ROOT.GetCountry.GetNameNoFlag] will #white #b gradually#!#! implement #white #b rail transportation#!#! in eligible states."
+	zw_auto_pm_transportation_button_desc: ""
+
+	zw_auto_pm_transportation_undo_button: "@red_cross! Rail Transportation"
+	zw_auto_pm_transportation_undo_button_effect: "Stop implementing more rail transportation in production."
+	zw_auto_pm_transportation_undo_button_desc: ""
+
+# custom tooltips
+
+ 	zw_require_basic_automation_tt: "Basic Automation has been enabled"

@@ -1,0 +1,148 @@
+﻿# automation basic
+
+zw_auto_pm_automation_basic_button = {
+	name = "zw_auto_pm_automation_basic_button"
+	desc = "zw_auto_pm_automation_basic_button_desc"
+	selected = { has_variable = zw_var_auto_pm_automation_basic }
+	effect = {
+		custom_tooltip = zw_auto_pm_automation_basic_button_effect
+		if = {
+			limit = {
+				NOT = { has_variable = zw_var_auto_pm_automation_basic }
+			}
+			set_variable = zw_var_auto_pm_automation_basic
+		}
+	}
+}
+
+zw_auto_pm_automation_basic_undo_button = {
+	name = "zw_auto_pm_automation_basic_undo_button"
+	desc = "zw_auto_pm_automation_basic_undo_button_desc"
+	selected = {
+		NOT = { has_variable = zw_var_auto_pm_automation_basic }
+	}
+	effect = {
+		custom_tooltip = zw_auto_pm_automation_basic_undo_button_effect
+		if = {
+			limit = { has_variable = zw_var_auto_pm_automation_basic }
+			remove_variable =zw_var_auto_pm_automation_basic
+		}
+		if = {
+			limit = { has_variable = zw_var_auto_pm_automation_electric }
+			remove_variable =zw_var_auto_pm_automation_electric
+		}
+		if = {
+			limit = { has_variable = zw_var_auto_pm_automation_oil }
+			remove_variable =zw_var_auto_pm_automation_oil
+		}
+	}
+}
+
+# automation electric
+
+zw_auto_pm_automation_electric_button = {
+	name = "zw_auto_pm_automation_electric_button"
+	desc = "zw_auto_pm_automation_electric_button_desc"
+	selected = { has_variable = zw_var_auto_pm_automation_electric }
+	possible = {
+		custom_tooltip = {
+			text = zw_require_basic_automation_tt
+			has_variable = zw_var_auto_pm_automation_basic
+		}
+	}
+	effect = {
+		custom_tooltip = zw_auto_pm_automation_electric_button_effect
+		if = {
+			limit = {
+				NOT = { has_variable = zw_var_auto_pm_automation_electric }
+			}
+			set_variable = zw_var_auto_pm_automation_electric
+		}
+	}
+}
+
+zw_auto_pm_automation_electric_undo_button = {
+	name = "zw_auto_pm_automation_electric_undo_button"
+	desc = "zw_auto_pm_automation_electric_undo_button_desc"
+	selected = {
+		NOT = { has_variable = zw_var_auto_pm_automation_electric }
+	}
+	effect = {
+		custom_tooltip = zw_auto_pm_automation_electric_undo_button_effect
+		if = {
+			limit = { has_variable = zw_var_auto_pm_automation_electric }
+			remove_variable =zw_var_auto_pm_automation_electric
+		}
+	}
+}
+
+# automation oil
+
+zw_auto_pm_automation_oil_button = {
+	name = "zw_auto_pm_automation_oil_button"
+	desc = "zw_auto_pm_automation_oil_button_desc"
+	selected = { has_variable = zw_var_auto_pm_automation_oil }
+	possible = {
+		custom_tooltip = {
+			text = zw_require_basic_automation_tt
+			has_variable = zw_var_auto_pm_automation_basic
+		}
+	}
+	effect = {
+		custom_tooltip = zw_auto_pm_automation_oil_button_effect
+		if = {
+			limit = {
+				NOT = { has_variable = zw_var_auto_pm_automation_oil }
+			}
+			set_variable = zw_var_auto_pm_automation_oil
+		}
+	}
+}
+
+zw_auto_pm_automation_oil_undo_button = {
+	name = "zw_auto_pm_automation_oil_undo_button"
+	desc = "zw_auto_pm_automation_oil_undo_button_desc"
+	selected = {
+		NOT = { has_variable = zw_var_auto_pm_automation_oil }
+	}
+	effect = {
+		custom_tooltip = zw_auto_pm_automation_oil_undo_button_effect
+		if = {
+			limit = { has_variable = zw_var_auto_pm_automation_oil }
+			remove_variable =zw_var_auto_pm_automation_oil
+		}
+	}
+}
+
+# train transportation
+
+zw_auto_pm_transportation_button = {
+	name = "zw_auto_pm_transportation_button"
+	desc = "zw_auto_pm_transportation_button_desc"
+	selected = { has_variable = zw_var_auto_pm_transportation }
+	possible = {}
+	effect = {
+		custom_tooltip = zw_auto_pm_transportation_button_effect
+		if = {
+			limit = {
+				NOT = { has_variable = zw_var_auto_pm_transportation }
+			}
+			set_variable = zw_var_auto_pm_transportation
+		}
+	}
+}
+
+zw_auto_pm_transportation_undo_button = {
+	name = "zw_auto_pm_transportation_undo_button"
+	desc = "zw_auto_pm_transportation_undo_button_desc"
+	selected = {
+		NOT = { has_variable = zw_var_auto_pm_transportation }
+	}
+	effect = {
+		custom_tooltip = zw_auto_pm_transportation_undo_button_effect
+		if = {
+			limit = { has_variable = zw_var_auto_pm_transportation }
+			remove_variable =zw_var_auto_pm_transportation
+		}
+	}
+}

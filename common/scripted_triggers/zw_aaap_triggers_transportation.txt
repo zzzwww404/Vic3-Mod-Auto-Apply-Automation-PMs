@@ -1,0 +1,467 @@
+﻿zw_trigger_auto_pm_transportation = {
+	# building_coal_mine
+	trigger_if = {
+		limit = { is_building_type = building_coal_mine}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_rail_transport_mine }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_coal_mine
+							production_method = pm_rail_transport_mine
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_iron_mine
+	trigger_else_if = {
+		limit = { is_building_type = building_iron_mine}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_rail_transport_mine }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_iron_mine
+							production_method = pm_rail_transport_mine
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_lead_mine
+	trigger_else_if = {
+		limit = { is_building_type = building_lead_mine}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_rail_transport_mine }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_lead_mine
+							production_method = pm_rail_transport_mine
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_sulfur_mine
+	trigger_else_if = {
+		limit = { is_building_type = building_sulfur_mine}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_rail_transport_mine }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_sulfur_mine
+							production_method = pm_rail_transport_mine
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_gold_mine
+	trigger_else_if = {
+		limit = { is_building_type = building_gold_mine}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_rail_transport_mine }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_gold_mine
+							production_method = pm_rail_transport_mine
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_coffee_plantation
+	trigger_else_if = {
+		limit = { is_building_type = building_coffee_plantation}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_steam_rail_transport }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_coffee_plantation
+							production_method = pm_steam_rail_transport
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_cotton_plantation
+	trigger_else_if = {
+		limit = { is_building_type = building_cotton_plantation}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_steam_rail_transport }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_cotton_plantation
+							production_method = pm_steam_rail_transport
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_dye_plantation
+	trigger_else_if = {
+		limit = { is_building_type = building_dye_plantation}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_steam_rail_transport }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_dye_plantation
+							production_method = pm_steam_rail_transport
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_opium_plantation
+	trigger_else_if = {
+		limit = { is_building_type = building_opium_plantation}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_steam_rail_transport }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_opium_plantation
+							production_method = pm_steam_rail_transport
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_tea_plantation
+	trigger_else_if = {
+		limit = { is_building_type = building_tea_plantation}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_steam_rail_transport }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_tea_plantation
+							production_method = pm_steam_rail_transport
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_tobacco_plantation
+	trigger_else_if = {
+		limit = { is_building_type = building_tobacco_plantation}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_steam_rail_transport }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_tobacco_plantation
+							production_method = pm_steam_rail_transport
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_sugar_plantation
+	trigger_else_if = {
+		limit = { is_building_type = building_sugar_plantation}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_steam_rail_transport }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_sugar_plantation
+							production_method = pm_steam_rail_transport
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_banana_plantation
+	trigger_else_if = {
+		limit = { is_building_type = building_banana_plantation}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_steam_rail_transport }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_banana_plantation
+							production_method = pm_steam_rail_transport
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_silk_plantation
+	trigger_else_if = {
+		limit = { is_building_type = building_silk_plantation}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_steam_rail_transport }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_silk_plantation
+							production_method = pm_steam_rail_transport
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_vineyard
+	trigger_else_if = {
+		limit = { is_building_type = building_vineyard}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_steam_rail_transport }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_vineyard
+							production_method = pm_steam_rail_transport
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_logging_camp
+	trigger_else_if = {
+		limit = { is_building_type = building_logging_camp}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_log_carts }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_logging_camp
+							production_method = pm_log_carts
+						}
+					}
+				}
+				always = yes
+			}
+			# pm_2
+			trigger_else_if = {
+				limit = { has_active_production_method = pm_rail_transport_building_logging_camp }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_logging_camp
+							production_method = pm_rail_transport_building_logging_camp
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_rubber_plantation
+	trigger_else_if = {
+		limit = { is_building_type = building_rubber_plantation}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_steam_rail_transport }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_rubber_plantation
+							production_method = pm_steam_rail_transport
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	# building_oil_rig
+	trigger_else_if = {
+		limit = { is_building_type = building_oil_rig}
+		#OR = {
+			# pmg_1
+			# pm_1
+			trigger_if = {
+				limit = { has_active_production_method = pm_tanker_cars }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_oil_rig
+							production_method = pm_tanker_cars
+						}
+					}
+				}
+				always = yes
+			}
+			# pm_2
+			trigger_else_if = {
+				limit = { has_active_production_method = pm_rail_transport_building_oil_rig }
+				always = no
+			}
+			trigger_else_if = {
+				limit = {
+					state = {
+						can_activate_production_method = {
+							building_type = building_oil_rig
+							production_method = pm_rail_transport_building_oil_rig
+						}
+					}
+				}
+				always = yes
+			}
+			trigger_else_if = { always = no }
+		#}
+	}
+	trigger_else = { always = no }
+}

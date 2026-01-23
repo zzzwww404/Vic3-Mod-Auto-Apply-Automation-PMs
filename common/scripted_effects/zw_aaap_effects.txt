@@ -1,0 +1,2109 @@
+﻿zw_effect_auto_pm_automation = {
+	# building_food_industry
+	if = {
+		limit = { is_building_type = building_food_industry}
+		# pmg_1
+		# pm_1
+		if = { # repeat, just in case double applied pms
+			limit = { has_active_production_method = pm_automated_bakery }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_food_industry
+		#				production_method = pm_automated_bakery
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_manual_dough_processing}
+		#			state = {
+		#				sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_food_industry
+					production_method = pm_automated_bakery
+				}
+			}
+		}
+	}
+	# building_textile_mill
+	else_if = {
+		limit = { is_building_type = building_textile_mill}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_automatic_power_looms }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				state = {
+					can_activate_production_method = {
+						building_type = building_textile_mill
+						production_method = pm_automatic_power_looms
+					}
+					has_building = building_power_plant
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_mechanized_looms}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_traditional_looms}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_textile_mill
+					production_method = pm_automatic_power_looms
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_mechanized_looms }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_textile_mill
+		#				production_method = pm_mechanized_looms
+		#			}
+		#		}
+		#		#trigger_if = {
+		#		#	limit = { has_active_production_method = pm_traditional_looms}
+		#			state = {
+		#				sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		#}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_textile_mill
+					production_method = pm_mechanized_looms
+				}
+			}
+		}
+	}
+	# building_furniture_manufactory
+	else_if = {
+		limit = { is_building_type = building_furniture_manufactory}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_assembly_lines_building_furniture_manufactory }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				owner = { has_variable = zw_var_auto_pm_automation_electric }
+				state = {
+					can_activate_production_method = {
+						building_type = building_furniture_manufactory
+						production_method = pm_assembly_lines_building_furniture_manufactory
+					}
+					has_building = building_power_plant
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_rotary_valve_engine_building_furniture_manufactory}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else_if = {
+					limit = { has_active_production_method = pm_watertube_boiler_building_furniture_manufactory}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_automation_disabled}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_furniture_manufactory
+					production_method = pm_assembly_lines_building_furniture_manufactory
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_rotary_valve_engine_building_furniture_manufactory }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_furniture_manufactory
+						production_method = pm_rotary_valve_engine_building_furniture_manufactory
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_watertube_boiler_building_furniture_manufactory}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_automation_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_furniture_manufactory
+					production_method = pm_rotary_valve_engine_building_furniture_manufactory
+				}
+			}
+		}
+		# pm_3
+		else_if = {
+			limit = { has_active_production_method = pm_watertube_boiler_building_furniture_manufactory }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_furniture_manufactory
+		#				production_method = pm_watertube_boiler_building_furniture_manufactory
+		#			}
+		#		}
+		#		#trigger_if = {
+		#		#	limit = { has_active_production_method = pm_automation_disabled}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		#}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_furniture_manufactory
+					production_method = pm_watertube_boiler_building_furniture_manufactory
+				}
+			}
+		}
+	}
+	# building_glassworks
+	else_if = {
+		limit = { is_building_type = building_glassworks}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_automatic_bottle_blowers }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		owner = { has_variable = zw_var_auto_pm_automation_oil }
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_glassworks
+		#				production_method = pm_automatic_bottle_blowers
+		#			}
+		#		}
+		#		#trigger_if = {
+		#		#	limit = { has_active_production_method = pm_manual_glassblowing}
+		#			state = {
+		#				sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		#}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_glassworks
+					production_method = pm_automatic_bottle_blowers
+				}
+			}
+		}
+	}
+	# building_tooling_workshop
+	else_if = {
+		limit = { is_building_type = building_tooling_workshop}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_assembly_lines_building_tooling_workshop }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				owner = { has_variable = zw_var_auto_pm_automation_electric }
+				state = {
+					can_activate_production_method = {
+						building_type = building_tooling_workshop
+						production_method = pm_assembly_lines_building_tooling_workshop
+					}
+					has_building = building_power_plant
+				}
+				#trigger_if = {
+				#	limit = { has_active_production_method = pm_rotary_valve_engine_building_tooling_workshop}
+				#	state = {
+				#		sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_watertube_boiler_building_tooling_workshop}
+				#	state = {
+				#		sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_automation_disabled}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				#}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_tooling_workshop
+					production_method = pm_assembly_lines_building_tooling_workshop
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_rotary_valve_engine_building_tooling_workshop }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_tooling_workshop
+						production_method = pm_rotary_valve_engine_building_tooling_workshop
+					}
+				}
+				#trigger_if = {
+				#	limit = { has_active_production_method = pm_watertube_boiler_building_tooling_workshop}
+				#	state = {
+				#		sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_automation_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				#}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_tooling_workshop
+					production_method = pm_rotary_valve_engine_building_tooling_workshop
+				}
+			}
+		}
+		# pm_3
+		else_if = {
+			limit = { has_active_production_method = pm_watertube_boiler_building_tooling_workshop }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_tooling_workshop
+		#				production_method = pm_watertube_boiler_building_tooling_workshop
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_automation_disabled}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_tooling_workshop
+					production_method = pm_watertube_boiler_building_tooling_workshop
+				}
+			}
+		}
+	}
+	# building_paper_mill
+	else_if = {
+		limit = { is_building_type = building_paper_mill}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_rotary_valve_engine_building_paper_mill }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_paper_mill
+						production_method = pm_rotary_valve_engine_building_paper_mill
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_watertube_boiler_building_paper_mill}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_automation_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_paper_mill
+					production_method = pm_rotary_valve_engine_building_paper_mill
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_watertube_boiler_building_paper_mill }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_paper_mill
+		#				production_method = pm_watertube_boiler_building_paper_mill
+		#			}
+		#		}
+		#		#trigger_if = {
+		#		#	limit = { has_active_production_method = pm_automation_disabled}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		#}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_paper_mill
+					production_method = pm_watertube_boiler_building_paper_mill
+				}
+			}
+		}
+	}
+	# building_steel_mill
+	else_if = {
+		limit = { is_building_type = building_steel_mill}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_rotary_valve_engine_building_steel_mill }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_steel_mill
+						production_method = pm_rotary_valve_engine_building_steel_mill
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_watertube_boiler_building_steel_mill}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_automation_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_steel_mill
+					production_method = pm_rotary_valve_engine_building_steel_mill
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_watertube_boiler_building_steel_mill }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_steel_mill
+		#				production_method = pm_watertube_boiler_building_steel_mill
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_automation_disabled}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_steel_mill
+					production_method = pm_watertube_boiler_building_steel_mill
+				}
+			}
+		}
+	}
+	# building_motor_industry
+	else_if = {
+		limit = { is_building_type = building_motor_industry}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_assembly_lines_building_motor_industry }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				owner = { has_variable = zw_var_auto_pm_automation_electric }
+				state = {
+					can_activate_production_method = {
+						building_type = building_motor_industry
+						production_method = pm_assembly_lines_building_motor_industry
+					}
+					has_building = building_power_plant
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_rotary_valve_engine_building_motor_industry}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else_if = {
+					limit = { has_active_production_method = pm_watertube_boiler_building_motor_industry}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_automation_disabled}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_motor_industry
+					production_method = pm_assembly_lines_building_motor_industry
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_rotary_valve_engine_building_motor_industry }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_motor_industry
+						production_method = pm_rotary_valve_engine_building_motor_industry
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_watertube_boiler_building_motor_industry}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_automation_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_motor_industry
+					production_method = pm_rotary_valve_engine_building_motor_industry
+				}
+			}
+		}
+		# pm_3
+		else_if = {
+			limit = { has_active_production_method = pm_watertube_boiler_building_motor_industry }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_motor_industry
+		#				production_method = pm_watertube_boiler_building_motor_industry
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_automation_disabled}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_motor_industry
+					production_method = pm_watertube_boiler_building_motor_industry
+				}
+			}
+		}
+	}
+	# building_automotive_industry
+	else_if = {
+		limit = { is_building_type = building_automotive_industry }
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_assembly_lines_building_automotive_industry }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		owner = { has_variable = zw_var_auto_pm_automation_oil }
+		#		owner = { has_variable = zw_var_auto_pm_automation_electric }
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_automotive_industry
+		#				production_method = pm_assembly_lines_building_automotive_industry
+		#			}
+		#			has_building = building_power_plant
+		#		}
+		#		#trigger_if = {
+		#		#	limit = { has_active_production_method = pm_automation_disabled}
+		#			state = {
+		#				sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		#}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_automotive_industry
+					production_method = pm_assembly_lines_building_automotive_industry
+				}
+			}
+		}
+	}
+	# building_arms_industry
+	else_if = {
+		limit = { is_building_type = building_arms_industry}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_assembly_lines_building_arms_industry }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				owner = { has_variable = zw_var_auto_pm_automation_electric }
+				state = {
+					can_activate_production_method = {
+						building_type = building_arms_industry
+						production_method = pm_assembly_lines_building_arms_industry
+					}
+					has_building = building_power_plant
+				}
+				#trigger_if = {
+				#	limit = { has_active_production_method = pm_rotary_valve_engine_building_arms_industry}
+				#	state = {
+				#		sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_automation_disabled}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				#}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_arms_industry
+					production_method = pm_assembly_lines_building_arms_industry
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_rotary_valve_engine_building_arms_industry }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_arms_industry
+		#				production_method = pm_rotary_valve_engine_building_arms_industry
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_automation_disabled}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_arms_industry
+					production_method = pm_rotary_valve_engine_building_arms_industry
+				}
+			}
+		}
+	}
+	# building_artillery_foundry
+	else_if = {
+		limit = { is_building_type = building_artillery_foundry}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_assembly_lines_building_arms_industry }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				owner = { has_variable = zw_var_auto_pm_automation_electric }
+				state = {
+					can_activate_production_method = {
+						building_type = building_artillery_foundry
+						production_method = pm_assembly_lines_building_arms_industry
+					}
+					has_building = building_power_plant
+				}
+				#trigger_if = {
+				#	limit = { has_active_production_method = pm_rotary_valve_engine_building_arms_industry}
+				#	state = {
+				#		sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_automation_disabled}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				#}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_artillery_foundry
+					production_method = pm_assembly_lines_building_arms_industry
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_rotary_valve_engine_building_arms_industry }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_artillery_foundry
+		#				production_method = pm_rotary_valve_engine_building_arms_industry
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_automation_disabled}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_artillery_foundry
+					production_method = pm_rotary_valve_engine_building_arms_industry
+				}
+			}
+		}
+	}
+	# building_munition_plant
+	else_if = {
+		limit = { is_building_type = building_munition_plant}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_assembly_lines_building_munition_plant }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				owner = { has_variable = zw_var_auto_pm_automation_electric }
+				state = {
+					can_activate_production_method = {
+						building_type = building_munition_plant
+						production_method = pm_assembly_lines_building_munition_plant
+					}
+					has_building = building_power_plant
+				}
+				#trigger_if = {
+				#	limit = { has_active_production_method = pm_rotary_valve_engine_building_munition_plant}
+				#	state = {
+				#		sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_automation_disabled}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				#}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_munition_plant
+					production_method = pm_assembly_lines_building_munition_plant
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_rotary_valve_engine_building_munition_plant }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_munition_plant
+		#				production_method = pm_rotary_valve_engine_building_munition_plant
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_automation_disabled}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_munition_plant
+					production_method = pm_rotary_valve_engine_building_munition_plant
+				}
+			}
+		}
+	}
+	# building_maize_farm
+	else_if = {
+		limit = { is_building_type = building_maize_farm}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_compression_ignition_tractors }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				state = {
+					can_activate_production_method = {
+						building_type = building_maize_farm
+						production_method = pm_compression_ignition_tractors
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_tractors}
+					state = {
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_steam_threshers}
+				#	state = {
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_tools}
+				#	state = {
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_tools_disabled}
+					state = {
+						sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_maize_farm
+					production_method = pm_compression_ignition_tractors
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_tractors }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_maize_farm
+						production_method = pm_tractors
+					}
+				}
+				#trigger_if = {
+				#	limit = { has_active_production_method = pm_steam_threshers}
+				#	state = {
+				#		sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_tools}
+				#	state = {
+				#		sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_tools_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				#}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_maize_farm
+					production_method = pm_tractors
+				}
+			}
+		}
+		# pm_3
+		else_if = {
+			limit = { has_active_production_method = pm_steam_threshers }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_maize_farm
+						production_method = pm_steam_threshers
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_tools}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_tools_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_maize_farm
+					production_method = pm_steam_threshers
+				}
+			}
+		}
+		# pm_4
+		else_if = {
+			limit = { has_active_production_method = pm_tools }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_maize_farm
+		#				production_method = pm_tools
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_tools_disabled}
+		#			state = {
+		#				sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_maize_farm
+					production_method = pm_tools
+				}
+			}
+		}
+	}
+	# building_millet_farm
+	else_if = {
+		limit = { is_building_type = building_millet_farm}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_compression_ignition_tractors }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				state = {
+					can_activate_production_method = {
+						building_type = building_millet_farm
+						production_method = pm_compression_ignition_tractors
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_tractors}
+					state = {
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_steam_threshers}
+				#	state = {
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_tools}
+				#	state = {
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_tools_disabled}
+					state = {
+						sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_millet_farm
+					production_method = pm_compression_ignition_tractors
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_tractors }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_millet_farm
+						production_method = pm_tractors
+					}
+				}
+				#trigger_if = {
+				#	limit = { has_active_production_method = pm_steam_threshers}
+				#	state = {
+				#		sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_tools}
+				#	state = {
+				#		sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else = {
+				#	#limit = { has_active_production_method = pm_tools_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				#}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_millet_farm
+					production_method = pm_tractors
+				}
+			}
+		}
+		# pm_3
+		else_if = {
+			limit = { has_active_production_method = pm_steam_threshers }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_millet_farm
+						production_method = pm_steam_threshers
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_tools}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_tools_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_millet_farm
+					production_method = pm_steam_threshers
+				}
+			}
+		}
+		# pm_4
+		else_if = {
+			limit = { has_active_production_method = pm_tools }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_millet_farm
+		#				production_method = pm_tools
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_tools_disabled}
+		#			state = {
+		#				sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_millet_farm
+					production_method = pm_tools
+				}
+			}
+		}
+	}
+	# building_rice_farm
+	else_if = {
+		limit = { is_building_type = building_rice_farm}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_steam_threshers_building_rice_farm }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_rice_farm
+						production_method = pm_steam_threshers_building_rice_farm
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_tools_building_rice_farm}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_tools_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_rice_farm
+					production_method = pm_steam_threshers_building_rice_farm
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_tools_building_rice_farm }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_rice_farm
+		#				production_method = pm_tools_building_rice_farm
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_tools_disabled}
+		#			state = {
+		#				sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_rice_farm
+					production_method = pm_tools_building_rice_farm
+				}
+			}
+		}
+	}
+	# building_rye_farm
+	else_if = {
+		limit = { is_building_type = building_rye_farm}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_compression_ignition_tractors }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				state = {
+					can_activate_production_method = {
+						building_type = building_rye_farm
+						production_method = pm_compression_ignition_tractors
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_tractors}
+					state = {
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_steam_threshers}
+				#	state = {
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_tools}
+				#	state = {
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_tools_disabled}
+					state = {
+						sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_rye_farm
+					production_method = pm_compression_ignition_tractors
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_tractors }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_rye_farm
+						production_method = pm_tractors
+					}
+				}
+				#trigger_if = {
+				#	limit = { has_active_production_method = pm_steam_threshers}
+				#	state = {
+				#		sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_tools}
+				#	state = {
+				#		sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else = {
+				#	#limit = { has_active_production_method = pm_tools_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				#}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_rye_farm
+					production_method = pm_tractors
+				}
+			}
+		}
+		# pm_3
+		else_if = {
+			limit = { has_active_production_method = pm_steam_threshers }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_rye_farm
+						production_method = pm_steam_threshers
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_tools}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_tools_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_rye_farm
+					production_method = pm_steam_threshers
+				}
+			}
+		}
+		# pm_4
+		else_if = {
+			limit = { has_active_production_method = pm_tools }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_rye_farm
+		#				production_method = pm_tools
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_tools_disabled}
+		#			state = {
+		#				sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_rye_farm
+					production_method = pm_tools
+				}
+			}
+		}
+	}
+	# building_wheat_farm
+	else_if = {
+		limit = { is_building_type = building_wheat_farm}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_compression_ignition_tractors }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				state = {
+					can_activate_production_method = {
+						building_type = building_wheat_farm
+						production_method = pm_compression_ignition_tractors
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_tractors}
+					state = {
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_steam_threshers}
+				#	state = {
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_tools}
+				#	state = {
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_tools_disabled}
+					state = {
+						sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_wheat_farm
+					production_method = pm_compression_ignition_tractors
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_tractors }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_wheat_farm
+						production_method = pm_tractors
+					}
+				}
+				#trigger_if = {
+				#	limit = { has_active_production_method = pm_steam_threshers}
+				#	state = {
+				#		sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_tools}
+				#	state = {
+				#		sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else = {
+				#	#limit = { has_active_production_method = pm_tools_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				#}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_wheat_farm
+					production_method = pm_tractors
+				}
+			}
+		}
+		# pm_3
+		else_if = {
+			limit = { has_active_production_method = pm_steam_threshers }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_wheat_farm
+						production_method = pm_steam_threshers
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_tools}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_tools_disabled}
+					state = {
+						sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_wheat_farm
+					production_method = pm_steam_threshers
+				}
+			}
+		}
+		# pm_4
+		else_if = {
+			limit = { has_active_production_method = pm_tools }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_wheat_farm
+		#				production_method = pm_tools
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_tools_disabled}
+		#			state = {
+		#				sg:tools= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_wheat_farm
+					production_method = pm_tools
+				}
+			}
+		}
+	}
+	# building_livestock_ranch
+	else_if = {
+		limit = { is_building_type = building_livestock_ranch}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_electric_fencing }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				state = {
+					can_activate_production_method = {
+						building_type = building_livestock_ranch
+						production_method = pm_electric_fencing
+					}
+					has_building = building_power_plant
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_barbed_wire_fences}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_standard_fences}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:iron= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_livestock_ranch
+					production_method = pm_electric_fencing
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_barbed_wire_fences }
+		}
+		else_if = {
+			limit = {
+				state = {
+					can_activate_production_method = {
+						building_type = building_livestock_ranch
+						production_method = pm_barbed_wire_fences
+					}
+				}
+				#trigger_if = {
+				#	limit = { has_active_production_method = pm_standard_fences}
+					state = {
+						sg:iron= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				#}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_livestock_ranch
+					production_method = pm_barbed_wire_fences
+				}
+			}
+		}
+		# pmg_2
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_refrigerated_rail_cars_building_livestock_ranch }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				state = {
+					can_activate_production_method = {
+						building_type = building_livestock_ranch
+						production_method = pm_refrigerated_rail_cars_building_livestock_ranch
+					}
+					has_building = building_power_plant
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_refrigerated_storage_building_livestock_ranch}
+					state = {
+						sg:transportation= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_unrefrigerated}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:transportation= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_livestock_ranch
+					production_method = pm_refrigerated_rail_cars_building_livestock_ranch
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_refrigerated_storage_building_livestock_ranch }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				state = {
+					can_activate_production_method = {
+						building_type = building_livestock_ranch
+						production_method = pm_refrigerated_storage_building_livestock_ranch
+					}
+					has_building = building_power_plant
+				}
+				#trigger_if = {
+				#	limit = { has_active_production_method = pm_unrefrigerated}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				#}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_livestock_ranch
+					production_method = pm_refrigerated_storage_building_livestock_ranch
+				}
+			}
+		}
+	}
+	# building_coal_mine
+	else_if = {
+		limit = { is_building_type = building_coal_mine}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_steam_donkey_building_coal_mine }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_coal_mine
+		#				production_method = pm_steam_donkey_building_coal_mine
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_no_steam_automation}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_coal_mine
+					production_method = pm_steam_donkey_building_coal_mine
+				}
+			}
+		}
+	}
+	# building_gold_mine
+	else_if = {
+		limit = { is_building_type = building_gold_mine}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_steam_donkey_mine }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_gold_mine
+		#				production_method = pm_steam_donkey_mine
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_no_steam_automation}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_gold_mine
+					production_method = pm_steam_donkey_mine
+				}
+			}
+		}
+	}
+	# building_iron_mine
+	else_if = {
+		limit = { is_building_type = building_iron_mine}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_steam_donkey_mine }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_iron_mine
+		#				production_method = pm_steam_donkey_mine
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_no_steam_automation}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_iron_mine
+					production_method = pm_steam_donkey_mine
+				}
+			}
+		}
+	}
+	# building_lead_mine
+	else_if = {
+		limit = { is_building_type = building_lead_mine}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_steam_donkey_mine }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_lead_mine
+		#				production_method = pm_steam_donkey_mine
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_no_steam_automation}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_lead_mine
+					production_method = pm_steam_donkey_mine
+				}
+			}
+		}
+	}
+	# building_sulfur_mine
+	else_if = {
+		limit = { is_building_type = building_sulfur_mine}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_steam_donkey_mine }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_sulfur_mine
+		#				production_method = pm_steam_donkey_mine
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_no_steam_automation}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_sulfur_mine
+					production_method = pm_steam_donkey_mine
+				}
+			}
+		}
+	}
+	# building_logging_camp
+	else_if = {
+		limit = { is_building_type = building_logging_camp}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_chainsaws }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				state = {
+					can_activate_production_method = {
+						building_type = building_logging_camp
+						production_method = pm_chainsaws
+					}
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_steam_donkey_building_logging_camp}
+					state = {
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_road_carts}
+					state = {
+						sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:oil= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_logging_camp
+					production_method = pm_chainsaws
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_steam_donkey_building_logging_camp }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_logging_camp
+		#				production_method = pm_steam_donkey_building_logging_camp
+		#			}
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_road_carts}
+		#			state = {
+		#				sg:coal= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#				sg:engines= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_logging_camp
+					production_method = pm_steam_donkey_building_logging_camp
+				}
+			}
+		}
+	}
+	# building_fishing_wharf
+	else_if = {
+		limit = { is_building_type = building_fishing_wharf}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_flash_freezing_building_fishing_wharf }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				state = {
+					can_activate_production_method = {
+						building_type = building_fishing_wharf
+						production_method = pm_flash_freezing_building_fishing_wharf
+					}
+					has_building = building_power_plant
+				}
+				#trigger_if = {
+				#	limit = { has_active_production_method = pm_refrigerated_rail_cars_building_fishing_wharf}
+				#	state = {
+				#		sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:transportation= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_refrigerated_storage_building_fishing_wharf}
+				#	state = {
+				#		sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:transportation= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_unrefrigerated}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:transportation= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				#}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_fishing_wharf
+					production_method = pm_flash_freezing_building_fishing_wharf
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_refrigerated_rail_cars_building_fishing_wharf }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				state = {
+					can_activate_production_method = {
+						building_type = building_fishing_wharf
+						production_method = pm_refrigerated_rail_cars_building_fishing_wharf
+					}
+					has_building = building_power_plant
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_refrigerated_storage_building_fishing_wharf}
+					state = {
+						sg:transportation= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_unrefrigerated}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:transportation= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_fishing_wharf
+					production_method = pm_refrigerated_rail_cars_building_fishing_wharf
+				}
+			}
+		}
+		# pm_3
+		else_if = {
+			limit = { has_active_production_method = pm_refrigerated_storage_building_fishing_wharf }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		owner = { has_variable = zw_var_auto_pm_automation_oil }
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_fishing_wharf
+		#				production_method = pm_refrigerated_storage_building_fishing_wharf
+		#			}
+		#			has_building = building_power_plant
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_unrefrigerated}
+		#			state = {
+		#				sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_fishing_wharf
+					production_method = pm_refrigerated_storage_building_fishing_wharf
+				}
+			}
+		}
+	}
+	# building_whaling_station
+	else_if = {
+		limit = { is_building_type = building_whaling_station}
+		# pmg_1
+		# pm_1
+		if = {
+			limit = { has_active_production_method = pm_flash_freezing_building_whaling_station }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				state = {
+					can_activate_production_method = {
+						building_type = building_whaling_station
+						production_method = pm_flash_freezing_building_whaling_station
+					}
+					has_building = building_power_plant
+				}
+				#trigger_if = {
+				#	limit = { has_active_production_method = pm_refrigerated_rail_cars_building_whaling_station}
+				#	state = {
+				#		sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:transportation= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_refrigerated_storage_building_whaling_station}
+				#	state = {
+				#		sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#		sg:transportation= { state_goods_pricier < zw_value_aaap_pricier_3 }
+				#	}
+				#}
+				#trigger_else_if = {
+				#	limit = { has_active_production_method = pm_unrefrigerated}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:transportation= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				#}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_whaling_station
+					production_method = pm_flash_freezing_building_whaling_station
+				}
+			}
+		}
+		# pm_2
+		else_if = {
+			limit = { has_active_production_method = pm_refrigerated_rail_cars_building_whaling_station }
+		}
+		else_if = {
+			limit = {
+				owner = { has_variable = zw_var_auto_pm_automation_oil }
+				state = {
+					can_activate_production_method = {
+						building_type = building_whaling_station
+						production_method = pm_refrigerated_rail_cars_building_whaling_station
+					}
+					has_building = building_power_plant
+				}
+				trigger_if = {
+					limit = { has_active_production_method = pm_refrigerated_storage_building_whaling_station}
+					state = {
+						sg:transportation= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+				trigger_else = {
+					#limit = { has_active_production_method = pm_unrefrigerated}
+					state = {
+						sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+						sg:transportation= { state_goods_pricier < zw_value_aaap_pricier_3 }
+					}
+				}
+			}
+			state = {
+				activate_production_method = {
+					building_type = building_whaling_station
+					production_method = pm_refrigerated_rail_cars_building_whaling_station
+				}
+			}
+		}
+		# pm_3
+		else_if = {
+			limit = { has_active_production_method = pm_refrigerated_storage_building_whaling_station }
+		}
+		else = {
+		#else_if = {
+		#	limit = {
+		#		owner = { has_variable = zw_var_auto_pm_automation_oil }
+		#		state = {
+		#			can_activate_production_method = {
+		#				building_type = building_whaling_station
+		#				production_method = pm_refrigerated_storage_building_whaling_station
+		#			}
+		#			has_building = building_power_plant
+		#		}
+		#		trigger_if = {
+		#			limit = { has_active_production_method = pm_unrefrigerated}
+		#			state = {
+		#				sg:electricity= { state_goods_pricier < zw_value_aaap_pricier_3 }
+		#			}
+		#		}
+		#	}
+			state = {
+				activate_production_method = {
+					building_type = building_whaling_station
+					production_method = pm_refrigerated_storage_building_whaling_station
+				}
+			}
+		}
+	}
+}
