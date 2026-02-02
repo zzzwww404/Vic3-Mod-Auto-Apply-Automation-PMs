@@ -1,115 +1,35 @@
-﻿# automation basic
+﻿# adjustment frequency
 
-zw_auto_pm_automation_basic_button = {
-	name = "zw_auto_pm_automation_basic_button"
-	desc = "zw_auto_pm_automation_basic_button_desc"
-	selected = { has_variable = zw_var_auto_pm_automation_basic }
-	effect = {
-		custom_tooltip = zw_auto_pm_automation_basic_button_effect
-		if = {
-			limit = {
-				NOT = { has_variable = zw_var_auto_pm_automation_basic }
-			}
-			set_variable = zw_var_auto_pm_automation_basic
-		}
-	}
-}
-
-zw_auto_pm_automation_basic_undo_button = {
-	name = "zw_auto_pm_automation_basic_undo_button"
-	desc = "zw_auto_pm_automation_basic_undo_button_desc"
+zw_auto_pm_adjustment_frequency_high_button = {
+	name = "zw_auto_pm_adjustment_frequency_high_button"
+	desc = "zw_auto_pm_adjustment_frequency_high_button_desc"
 	selected = {
-		NOT = { has_variable = zw_var_auto_pm_automation_basic }
+		NOT = { has_variable = zw_var_auto_pm_slower_automation }
 	}
 	effect = {
-		custom_tooltip = zw_auto_pm_automation_basic_undo_button_effect
+		custom_tooltip = zw_auto_pm_adjustment_frequency_high_button_effect
 		if = {
-			limit = { has_variable = zw_var_auto_pm_automation_basic }
-			remove_variable =zw_var_auto_pm_automation_basic
+			limit = { has_variable = zw_var_auto_pm_slower_automation }
+			remove_variable = zw_var_auto_pm_slower_automation
 		}
-		if = {
-			limit = { has_variable = zw_var_auto_pm_automation_electric }
-			remove_variable =zw_var_auto_pm_automation_electric
-		}
-		if = {
-			limit = { has_variable = zw_var_auto_pm_automation_oil }
-			remove_variable =zw_var_auto_pm_automation_oil
+		else = {
+			set_variable =zw_var_auto_pm_slower_automation
 		}
 	}
 }
 
-# automation electric
-
-zw_auto_pm_automation_electric_button = {
-	name = "zw_auto_pm_automation_electric_button"
-	desc = "zw_auto_pm_automation_electric_button_desc"
-	selected = { has_variable = zw_var_auto_pm_automation_electric }
-	possible = {
-		custom_tooltip = {
-			text = zw_require_basic_automation_tt
-			has_variable = zw_var_auto_pm_automation_basic
-		}
-	}
+zw_auto_pm_adjustment_frequency_low_button = {
+	name = "zw_auto_pm_adjustment_frequency_low_button"
+	desc = "zw_auto_pm_adjustment_frequency_low_button_desc"
+	selected = { has_variable = zw_var_auto_pm_slower_automation }
 	effect = {
-		custom_tooltip = zw_auto_pm_automation_electric_button_effect
+		custom_tooltip = zw_auto_pm_adjustment_frequency_low_button_effect
 		if = {
-			limit = {
-				NOT = { has_variable = zw_var_auto_pm_automation_electric }
-			}
-			set_variable = zw_var_auto_pm_automation_electric
+			limit = { has_variable = zw_var_auto_pm_slower_automation }
+			remove_variable = zw_var_auto_pm_slower_automation
 		}
-	}
-}
-
-zw_auto_pm_automation_electric_undo_button = {
-	name = "zw_auto_pm_automation_electric_undo_button"
-	desc = "zw_auto_pm_automation_electric_undo_button_desc"
-	selected = {
-		NOT = { has_variable = zw_var_auto_pm_automation_electric }
-	}
-	effect = {
-		custom_tooltip = zw_auto_pm_automation_electric_undo_button_effect
-		if = {
-			limit = { has_variable = zw_var_auto_pm_automation_electric }
-			remove_variable =zw_var_auto_pm_automation_electric
-		}
-	}
-}
-
-# automation oil
-
-zw_auto_pm_automation_oil_button = {
-	name = "zw_auto_pm_automation_oil_button"
-	desc = "zw_auto_pm_automation_oil_button_desc"
-	selected = { has_variable = zw_var_auto_pm_automation_oil }
-	possible = {
-		custom_tooltip = {
-			text = zw_require_basic_automation_tt
-			has_variable = zw_var_auto_pm_automation_basic
-		}
-	}
-	effect = {
-		custom_tooltip = zw_auto_pm_automation_oil_button_effect
-		if = {
-			limit = {
-				NOT = { has_variable = zw_var_auto_pm_automation_oil }
-			}
-			set_variable = zw_var_auto_pm_automation_oil
-		}
-	}
-}
-
-zw_auto_pm_automation_oil_undo_button = {
-	name = "zw_auto_pm_automation_oil_undo_button"
-	desc = "zw_auto_pm_automation_oil_undo_button_desc"
-	selected = {
-		NOT = { has_variable = zw_var_auto_pm_automation_oil }
-	}
-	effect = {
-		custom_tooltip = zw_auto_pm_automation_oil_undo_button_effect
-		if = {
-			limit = { has_variable = zw_var_auto_pm_automation_oil }
-			remove_variable =zw_var_auto_pm_automation_oil
+		else = {
+			set_variable =zw_var_auto_pm_slower_automation
 		}
 	}
 }
@@ -120,29 +40,88 @@ zw_auto_pm_transportation_button = {
 	name = "zw_auto_pm_transportation_button"
 	desc = "zw_auto_pm_transportation_button_desc"
 	selected = { has_variable = zw_var_auto_pm_transportation }
-	possible = {}
 	effect = {
 		custom_tooltip = zw_auto_pm_transportation_button_effect
 		if = {
-			limit = {
-				NOT = { has_variable = zw_var_auto_pm_transportation }
-			}
+			limit = { has_variable = zw_var_auto_pm_transportation }
+			remove_variable = zw_var_auto_pm_transportation
+		}
+		else = {
 			set_variable = zw_var_auto_pm_transportation
 		}
 	}
 }
 
-zw_auto_pm_transportation_undo_button = {
-	name = "zw_auto_pm_transportation_undo_button"
-	desc = "zw_auto_pm_transportation_undo_button_desc"
-	selected = {
-		NOT = { has_variable = zw_var_auto_pm_transportation }
-	}
+# automation basic
+
+zw_auto_pm_automation_basic_button = {
+	name = "zw_auto_pm_automation_basic_button"
+	desc = "zw_auto_pm_automation_basic_button_desc"
+	selected = { has_variable = zw_var_auto_pm_automation_basic }
 	effect = {
-		custom_tooltip = zw_auto_pm_transportation_undo_button_effect
+		custom_tooltip = zw_auto_pm_automation_basic_button_effect
 		if = {
-			limit = { has_variable = zw_var_auto_pm_transportation }
-			remove_variable =zw_var_auto_pm_transportation
+			limit = { has_variable = zw_var_auto_pm_automation_basic }
+			remove_variable = zw_var_auto_pm_automation_basic
+			if = {
+				limit = { has_variable = zw_var_auto_pm_automation_electric }
+				remove_variable = zw_var_auto_pm_automation_electric
+			}
+			if = {
+				limit = { has_variable = zw_var_auto_pm_automation_oil }
+				remove_variable = zw_var_auto_pm_automation_oil
+			}
+		}
+		else = {
+			set_variable = zw_var_auto_pm_automation_basic
+		}
+	}
+}
+
+# automation electric
+
+zw_auto_pm_automation_electric_button = {
+	name = "zw_auto_pm_automation_electric_button"
+	desc = "zw_auto_pm_automation_electric_button_desc"
+	selected = { has_variable = zw_var_auto_pm_automation_electric }
+	effect = {
+		if = {
+			limit = { has_variable = zw_var_auto_pm_automation_basic }
+			custom_tooltip = zw_auto_pm_automation_electric_button_effect
+			if = {
+				limit = { has_variable = zw_var_auto_pm_automation_electric }
+				remove_variable = zw_var_auto_pm_automation_electric
+			}
+			else = {
+				set_variable = zw_var_auto_pm_automation_electric
+			}
+		}
+		else = {
+			custom_tooltip = zw_text_auto_pm_require_basic_automation
+		}
+	}
+}
+
+# automation oil-powered
+
+zw_auto_pm_automation_oil_button = {
+	name = "zw_auto_pm_automation_oil_button"
+	desc = "zw_auto_pm_automation_oil_button_desc"
+	selected = { has_variable = zw_var_auto_pm_automation_oil }
+	effect = {
+		if = {
+			limit = { has_variable = zw_var_auto_pm_automation_basic }
+			custom_tooltip = zw_auto_pm_automation_electric_button_effect
+			if = {
+				limit = { has_variable = zw_var_auto_pm_automation_oil }
+				remove_variable = zw_var_auto_pm_automation_oil
+			}
+			else = {
+				set_variable = zw_var_auto_pm_automation_oil
+			}
+		}
+		else = {
+			custom_tooltip = zw_text_auto_pm_require_basic_automation
 		}
 	}
 }

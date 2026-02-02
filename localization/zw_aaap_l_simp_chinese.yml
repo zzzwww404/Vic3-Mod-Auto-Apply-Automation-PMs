@@ -9,6 +9,7 @@
 l_simp_chinese:
 #l_spanish:
 #l_turkish:
+
 # decisions
 
 	zw_auto_pm_automation_add_je: "$je_zw_auto_pm_automation$"
@@ -17,50 +18,53 @@ l_simp_chinese:
 # journal entries
 
 	je_zw_auto_pm_automation: "生产自动化管理"
-	je_zw_auto_pm_automation_reason: "普及自动化生产方式。"
+	je_zw_auto_pm_automation_reason: "$pmg_automation$$zw_text_auto_pm_introduce_automation_gradually$"
 
 # scripted buttons
 
-	# Basic Automation
+	# Adjustment Frequency
 
-	zw_auto_pm_automation_basic_button: "@green_checkmark!基础自动化"
-	zw_auto_pm_automation_basic_button_effect: "[ROOT.GetCountry.GetNameNoFlag]将在符合条件的地区#white #b 逐渐#!#!普及#white #b 基础#!#!自动化生产方式。"
-	zw_auto_pm_automation_basic_button_desc: ""
+	zw_auto_pm_adjustment_frequency_high_button: "@arrow_up_up!调整频率"
+	zw_auto_pm_adjustment_frequency_high_button_desc: ""
+	zw_auto_pm_adjustment_frequency_high_button_effect: "#v 每月#!调整$pmg_automation$ [Concept('concept_production_method','$concept_production_methods$')]。\n\n较高的调整频率会增加自动化引起的失业率波动和商品价格波动。"
 
-	zw_auto_pm_automation_basic_undo_button: "@red_cross!基础自动化"
-	zw_auto_pm_automation_basic_undo_button_effect: "停止普及基础自动化。"
-	zw_auto_pm_automation_basic_undo_button_desc: ""
-
-	# Electrical Automation
-
-	zw_auto_pm_automation_electric_button: "@green_checkmark!电气自动化"
-	zw_auto_pm_automation_electric_button_effect: "[ROOT.GetCountry.GetNameNoFlag]将在符合条件的地区#white #b 逐渐#!#!普及#white #b 电气#!#!自动化生产方式。"
-	zw_auto_pm_automation_electric_button_desc: ""
-
-	zw_auto_pm_automation_electric_undo_button: "@red_cross!电气自动化"
-	zw_auto_pm_automation_electric_undo_button_effect: "停止普及电气自动化。"
-	zw_auto_pm_automation_electric_undo_button_desc: ""
-
-	# Oil Automation
-
-	zw_auto_pm_automation_oil_button: "@green_checkmark!石油自动化"
-	zw_auto_pm_automation_oil_button_effect: "[ROOT.GetCountry.GetNameNoFlag]将在符合条件的地区#white #b 逐渐#!#!普及#white #b 石油#!#!自动化生产方式。"
-	zw_auto_pm_automation_oil_button_desc: ""
-
-	zw_auto_pm_automation_oil_undo_button: "@red_cross!石油自动化"
-	zw_auto_pm_automation_oil_undo_button_effect: "停止普及石油自动化。"
-	zw_auto_pm_automation_oil_undo_button_desc: ""
+	zw_auto_pm_adjustment_frequency_low_button: "@arrow_down_down!调整频率"
+	zw_auto_pm_adjustment_frequency_low_button_desc: ""
+	zw_auto_pm_adjustment_frequency_low_button_effect: "#v 每半年#!调整$pmg_automation$ [Concept('concept_production_method','$concept_production_methods$')]。\n\n较低的调整频率可减小自动化引起的失业率波动和商品价格波动。"
 
 	# Rail Transportation
 
-	zw_auto_pm_transportation_button: "@green_checkmark!轨道运输"
-	zw_auto_pm_transportation_button_effect: "[ROOT.GetCountry.GetNameNoFlag]将在符合条件的地区#white #b 逐渐#!#!普及#white #b 轨道运输#!#!。"
+	zw_auto_pm_transportation_button: "铁路自动化"
 	zw_auto_pm_transportation_button_desc: ""
+	zw_auto_pm_transportation_button_effect: "#v $zw_auto_pm_transportation_button$#!$zw_text_auto_pm_introduce_automation_gradually$"
 
-	zw_auto_pm_transportation_undo_button: "@red_cross!轨道运输"
-	zw_auto_pm_transportation_undo_button_effect: "停止普及轨道运输。。"
-	zw_auto_pm_transportation_undo_button_desc: ""
+	# Basic Automation
+
+	zw_auto_pm_automation_basic_button: "基础自动化"
+	zw_auto_pm_automation_basic_button_effect: "#v $zw_auto_pm_automation_basic_button$#!$zw_text_auto_pm_introduce_automation_gradually$"
+	zw_auto_pm_automation_basic_button_desc: ""
+
+	# Electrical Automation
+
+	zw_auto_pm_automation_electric_button: "电气自动化"
+	zw_auto_pm_automation_electric_button_desc: ""
+	zw_auto_pm_automation_electric_button_effect: "#v $zw_auto_pm_automation_electric_button$#!$zw_text_auto_pm_introduce_automation_gradually$"
+	
+	# Oil Automation
+
+	zw_auto_pm_automation_oil_button: "燃油自动化"
+	zw_auto_pm_automation_oil_button_desc: ""
+	zw_auto_pm_automation_oil_button_effect: "#v $zw_auto_pm_automation_oil_button$#!$zw_text_auto_pm_introduce_automation_gradually$"
 
 # custom tooltips
 
- 	zw_require_basic_automation_tt: "已在普及基础自动化"
+	zw_text_auto_pm_require_basic_automation: "#red 注意：#!必须先启用#v $zw_auto_pm_automation_basic_button$#!"
+
+	zw_text_auto_pm_introduce_automation_gradually: "[Concept('concept_production_method','$concept_production_methods$')]会#v 逐渐#!在$zw_text_auto_pm_labor_shortages$的地区普及。\n\n#red 注意：#!当[Concept('concept_good_consumption','$concept_input_goods$')][Concept('concept_local_price','$concept_local_prices$')]过高时，自动化[Concept('concept_production_method','$concept_production_methods$')]不会被启用。"
+
+	zw_text_auto_pm_labor_shortages: "#tooltip:[GetPlayer.GetTooltipTag],zw_text_auto_pm_labor_shortages_tooltip_text $zw_text_auto_pm_labor_shortages_tooltip$#!"
+
+	zw_text_auto_pm_labor_shortages_tooltip: "#tooltippable 劳动力不足#!"
+
+	zw_text_auto_pm_labor_shortages_tooltip_text: "#v 自给农劳动力数量 + 失业劳动力数量 < 地区空缺岗位 + 1000#!"
+

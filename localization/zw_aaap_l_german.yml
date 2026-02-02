@@ -18,50 +18,52 @@ l_german:
 # journal entries
 
 	je_zw_auto_pm_automation: "Production Automation Management"
-	je_zw_auto_pm_automation_reason: "Automate our production process."
+	je_zw_auto_pm_automation_reason: "$pmg_automation$ $zw_text_auto_pm_introduce_automation_gradually$"
 
 # scripted buttons
 
-	# Basic Automation
+	# Adjustment Frequency
 
-	zw_auto_pm_automation_basic_button: "@green_checkmark! Basic Automation"
-	zw_auto_pm_automation_basic_button_effect: "[ROOT.GetCountry.GetNameNoFlag] will #white #b gradually#!#! implement #white #b basic#!#! automated production methods in eligible states."
-	zw_auto_pm_automation_basic_button_desc: ""
+	zw_auto_pm_adjustment_frequency_high_button: "@arrow_up_up! Adjustment Frequency"
+	zw_auto_pm_adjustment_frequency_high_button_desc: ""
+	zw_auto_pm_adjustment_frequency_high_button_effect: "$pmg_automation$ [Concept('concept_production_method','$concept_production_methods$')] are adjusted #v monthly#!.\n\nA higher adjustment frequency increases fluctuations in unemployment and goods prices caused by automation."
 
-	zw_auto_pm_automation_basic_undo_button: "@red_cross! Basic Automation"
-	zw_auto_pm_automation_basic_undo_button_effect: "Stop implementing more basic automated methods."
-	zw_auto_pm_automation_basic_undo_button_desc: ""
-
-	# Electrical Automation
-
-	zw_auto_pm_automation_electric_button: "@green_checkmark! Electrical Automation"
-	zw_auto_pm_automation_electric_button_effect: "[ROOT.GetCountry.GetNameNoFlag] will #white #b gradually#!#! implement #white #b electrical#!#! automated production methods in eligible states."
-	zw_auto_pm_automation_electric_button_desc: ""
-
-	zw_auto_pm_automation_electric_undo_button: "@red_cross! Electrical Automation"
-	zw_auto_pm_automation_electric_undo_button_effect: "Stop implementing more electrical automated methods."
-	zw_auto_pm_automation_electric_undo_button_desc: ""
-
-	# Oil Automation
-
-	zw_auto_pm_automation_oil_button: "@green_checkmark! Oil Automation"
-	zw_auto_pm_automation_oil_button_effect: "[ROOT.GetCountry.GetNameNoFlag] will #white #b gradually#!#! implement #white #b oil#!#! automated production methods in eligible states."
-	zw_auto_pm_automation_oil_button_desc: ""
-
-	zw_auto_pm_automation_oil_undo_button: "@red_cross! Oil Automation"
-	zw_auto_pm_automation_oil_undo_button_effect: "Stop implementing more automated methods that needs oil."
-	zw_auto_pm_automation_oil_undo_button_desc: ""
+	zw_auto_pm_adjustment_frequency_low_button: "@arrow_down_down! Adjustment Frequency"
+	zw_auto_pm_adjustment_frequency_low_button_desc: ""
+	zw_auto_pm_adjustment_frequency_low_button_effect: "$pmg_automation$ [Concept('concept_production_method','$concept_production_methods$')] are adjusted  #v twice a year#!.\n\nA lower adjustment frequency reduces fluctuations in unemployment and goods prices caused by automation."
 
 	# Rail Transportation
 
-	zw_auto_pm_transportation_button: "@green_checkmark! Rail Transportation"
-	zw_auto_pm_transportation_button_effect: "[ROOT.GetCountry.GetNameNoFlag] will #white #b gradually#!#! implement #white #b rail transportation#!#! in eligible states."
+	zw_auto_pm_transportation_button: "Rail Transportation"
 	zw_auto_pm_transportation_button_desc: ""
+	zw_auto_pm_transportation_button_effect: "#v $zw_auto_pm_transportation_button$#! $zw_text_auto_pm_introduce_automation_gradually$"
 
-	zw_auto_pm_transportation_undo_button: "@red_cross! Rail Transportation"
-	zw_auto_pm_transportation_undo_button_effect: "Stop implementing more rail transportation in production."
-	zw_auto_pm_transportation_undo_button_desc: ""
+	# Basic Automation
 
+	zw_auto_pm_automation_basic_button: "Basic Automation"
+	zw_auto_pm_automation_basic_button_effect: "#v $zw_auto_pm_automation_basic_button$#! $zw_text_auto_pm_introduce_automation_gradually$"
+	zw_auto_pm_automation_basic_button_desc: ""
+
+	# Electrical Automation
+
+	zw_auto_pm_automation_electric_button: "Electrified Automation"
+	zw_auto_pm_automation_electric_button_desc: ""
+	zw_auto_pm_automation_electric_button_effect: "#v $zw_auto_pm_automation_electric_button$#! $zw_text_auto_pm_introduce_automation_gradually$"
+	
+	# Oil Automation
+
+	zw_auto_pm_automation_oil_button: "Oil-Powered Automation"
+	zw_auto_pm_automation_oil_button_desc: ""
+	zw_auto_pm_automation_oil_button_effect: "#v $zw_auto_pm_automation_oil_button$#! $zw_text_auto_pm_introduce_automation_gradually$"
+	
 # custom tooltips
 
- 	zw_require_basic_automation_tt: "Basic Automation has been enabled"
+	zw_text_auto_pm_require_basic_automation: "#red Note:#! #v $zw_auto_pm_automation_basic_button$#! must be enabled first"
+
+	zw_text_auto_pm_introduce_automation_gradually: "[Concept('concept_production_method','$concept_production_methods$')] will be #v gradually#! introduced in states with $zw_text_auto_pm_labor_shortages$.\n\n#red Note:#! The [Concept('concept_production_method','$concept_production_methods$')] won't be applied if the [Concept('concept_local_price','$concept_local_prices$')] of [Concept('concept_good_consumption','$concept_input_goods$')] for automation are expensive."
+
+	zw_text_auto_pm_labor_shortages: "#tooltip:[GetPlayer.GetTooltipTag],zw_text_auto_pm_labor_shortages_tooltip_text $zw_text_auto_pm_labor_shortages_tooltip$#!"
+
+	zw_text_auto_pm_labor_shortages_tooltip: "#tooltippable Labor Shortage#!"
+
+	zw_text_auto_pm_labor_shortages_tooltip_text: "#v Peasant Labor + Unemployed Labor < Available Jobs + 1000#!"
