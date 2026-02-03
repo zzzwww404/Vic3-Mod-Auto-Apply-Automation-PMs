@@ -1,9 +1,9 @@
 ﻿zw_trigger_aaap_state_workforce_low = {
-	# unemployment + Peasants - available_jobs <= 1000
+	# unemployment + Peasants  <= 1000
 	1000 >= {
 		add = state_unemployment_rate
 		add = "pop_type_percent_state(pop_type:peasants)"
 		multiply = state_population
-		subtract = available_jobs
+		#subtract = available_jobs # unused, might not worthy for the performance
 	}
 }

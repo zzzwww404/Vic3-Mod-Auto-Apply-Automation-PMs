@@ -1,7 +1,10 @@
 ﻿zw_effect_auto_pm_transportation = {
+	#bg_extraction
+	#bg_plantations
+	#building_vineyard
 	# building_coal_mine
 	if = {
-		limit = { is_building_type = building_coal_mine}
+		limit = { is_building_type = building_coal_mine }
 		# pmg_1
 		# pm_1
 		if = {
@@ -27,7 +30,7 @@
 	}
 	# building_iron_mine
 	else_if = {
-		limit = { is_building_type = building_iron_mine}
+		limit = { is_building_type = building_iron_mine }
 		# pmg_1
 		# pm_1
 		if = {
@@ -53,7 +56,7 @@
 	}
 	# building_lead_mine
 	else_if = {
-		limit = { is_building_type = building_lead_mine}
+		limit = { is_building_type = building_lead_mine }
 		# pmg_1
 		# pm_1
 		if = {
@@ -79,7 +82,7 @@
 	}
 	# building_sulfur_mine
 	else_if = {
-		limit = { is_building_type = building_sulfur_mine}
+		limit = { is_building_type = building_sulfur_mine }
 		# pmg_1
 		# pm_1
 		if = {
@@ -105,7 +108,7 @@
 	}
 	# building_gold_mine
 	else_if = {
-		limit = { is_building_type = building_gold_mine}
+		limit = { is_building_type = building_gold_mine }
 		# pmg_1
 		# pm_1
 		if = {
@@ -131,7 +134,7 @@
 	}
 	# building_coffee_plantation
 	else_if = {
-		limit = { is_building_type = building_coffee_plantation}
+		limit = { is_building_type = building_coffee_plantation }
 		# pmg_1
 		# pm_1
 		if = {
@@ -157,7 +160,7 @@
 	}
 	# building_cotton_plantation
 	else_if = {
-		limit = { is_building_type = building_cotton_plantation}
+		limit = { is_building_type = building_cotton_plantation }
 		# pmg_1
 		# pm_1
 		if = {
@@ -183,7 +186,7 @@
 	}
 	# building_dye_plantation
 	else_if = {
-		limit = { is_building_type = building_dye_plantation}
+		limit = { is_building_type = building_dye_plantation }
 		# pmg_1
 		# pm_1
 		if = {
@@ -209,7 +212,7 @@
 	}
 	# building_opium_plantation
 	else_if = {
-		limit = { is_building_type = building_opium_plantation}
+		limit = { is_building_type = building_opium_plantation }
 		# pmg_1
 		# pm_1
 		if = {
@@ -235,7 +238,7 @@
 	}
 	# building_tea_plantation
 	else_if = {
-		limit = { is_building_type = building_tea_plantation}
+		limit = { is_building_type = building_tea_plantation }
 		# pmg_1
 		# pm_1
 		if = {
@@ -261,7 +264,7 @@
 	}
 	# building_tobacco_plantation
 	else_if = {
-		limit = { is_building_type = building_tobacco_plantation}
+		limit = { is_building_type = building_tobacco_plantation }
 		# pmg_1
 		# pm_1
 		if = {
@@ -287,7 +290,7 @@
 	}
 	# building_sugar_plantation
 	else_if = {
-		limit = { is_building_type = building_sugar_plantation}
+		limit = { is_building_type = building_sugar_plantation }
 		# pmg_1
 		# pm_1
 		if = {
@@ -313,7 +316,7 @@
 	}
 	# building_banana_plantation
 	else_if = {
-		limit = { is_building_type = building_banana_plantation}
+		limit = { is_building_type = building_banana_plantation }
 		# pmg_1
 		# pm_1
 		if = {
@@ -339,7 +342,7 @@
 	}
 	# building_silk_plantation
 	else_if = {
-		limit = { is_building_type = building_silk_plantation}
+		limit = { is_building_type = building_silk_plantation }
 		# pmg_1
 		# pm_1
 		if = {
@@ -365,7 +368,7 @@
 	}
 	# building_vineyard
 	else_if = {
-		limit = { is_building_type = building_vineyard}
+		limit = { is_building_type = building_vineyard }
 		# pmg_1
 		# pm_1
 		if = {
@@ -391,7 +394,7 @@
 	}
 	# building_logging_camp
 	else_if = {
-		limit = { is_building_type = building_logging_camp}
+		limit = { is_building_type = building_logging_camp }
 		# pmg_1
 		# pm_1
 		if = {
@@ -437,7 +440,7 @@
 	}
 	# building_rubber_plantation
 	else_if = {
-		limit = { is_building_type = building_rubber_plantation}
+		limit = { is_building_type = building_rubber_plantation }
 		# pmg_1
 		# pm_1
 		if = {
@@ -463,7 +466,7 @@
 	}
 	# building_oil_rig
 	else_if = {
-		limit = { is_building_type = building_oil_rig}
+		limit = { is_building_type = building_oil_rig }
 		# pmg_1
 		# pm_1
 		if = {

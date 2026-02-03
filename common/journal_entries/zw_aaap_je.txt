@@ -56,7 +56,7 @@
 							else_if = {
 								limit = {
 									has_building = building_railway
-									sg:transportation = { state_goods_cheaper >= 0 }
+									sg:transportation = { state_goods_pricier <= 0 }
 								}
 								zw_effect_change_state_pm_transportation = yes
 							}
@@ -68,7 +68,7 @@
 							limit = {
 								has_building = building_railway
 								OR = {
-									sg:transportation = { state_goods_cheaper >= 0 }
+									sg:transportation = { state_goods_pricier <= 0 }
 									AND = {
 										sg:transportation = { state_goods_pricier <= 0.20 }
 										zw_trigger_aaap_state_workforce_low = yes
